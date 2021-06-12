@@ -26,18 +26,54 @@ class SinglyLinkedList{
         this.length += 1
         return this
     }
+    pop(){
+        if(!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        
+        while(current.next){
+            newTail = current;
+            current = current.next;
+        }
+        this.tail = newTail
+        this.tail.next = null
+        this.length--;
+        if(this.length === 0){
+            this.head = null
+            this.tail = null
+        }
+        return current
 
 
+
+    }
+    shift(){
+        if(!this.head) return undefined
+        let currentHead = this.head
+        this.head = currentHead.next
+        this.length--;
+        if(this.length === 0){
+            this.tail = null
+        }
+        return currentHead
+    }
+  
 
 }
 
 
 
 var list = new SinglyLinkedList()
-list.push("Hello")
-list.push("Goodbye")
+// list.push("Hello")
+// list.push("Goodbye")
+// // list.push("Hello")
+// list.push("Goodbye")
+// // list.push("Hello")
+// list.push("Goodbye")// list.push("Hello")
+// list.push("Goodbye")
+list.pop()
 
 // var first = new Node('Hi')
 // first.next = new Node('there')
 
-console.log(list.val)
+console.log(list)
