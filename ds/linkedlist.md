@@ -20,9 +20,24 @@
 - return the value of the node removed
 
 
-# Shifting 
+# Shifting pseudocode
 - if there are no nodes, return undefined
 - Store the current head property in a variable
 - Set the head property to be the current head's next property
 - Decrment the length by 1
 - Return the value of the node removed
+
+# Unshifting pseudocode
+- This functuon should accept a value
+- Create a new node using the value passed to the function
+- If there is no head property on the list, set the head and tail to be the newly created node
+- otherwise set the newlty created node's next propert to be the current head property on the list
+- Increment the length of the list by 1
+- return the linked list
+
+# Get Pseduocode
+- Function should accept an index
+- if the index is less than zero or greater than or equal to length of the list, return null
+- Loop through the list until you reach the index and return the node at the specific index
+
+

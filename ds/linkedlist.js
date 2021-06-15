@@ -37,16 +37,14 @@ class SinglyLinkedList{
         }
         this.tail = newTail
         this.tail.next = null
-        this.length--;
+        this.length -= 1;
         if(this.length === 0){
             this.head = null
             this.tail = null
         }
         return current
-
-
-
     }
+
     shift(){
         if(!this.head) return undefined
         let currentHead = this.head
@@ -57,6 +55,40 @@ class SinglyLinkedList{
         }
         return currentHead
     }
+
+    unshift(val){
+        let newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = this.head
+        } else {
+            newNode.next = this.head;
+            this.head = newNode
+        }
+        this.length += 1;
+        return this
+    }
+
+    get(index){
+        if( index < 0 || index >= this.length) return null
+        let counter = 0;
+        let current = this.head;
+        while(counter !== index){
+            current = current.next
+         
+            counter += 1
+        }
+        return current 
+
+    }
+    set(index, val){
+        let foundNode = this.get(index)
+        if(foundNode){
+            foundNode.val = val;
+            return true 
+        }
+        return false 
+    }
   
 
 }
@@ -64,16 +96,18 @@ class SinglyLinkedList{
 
 
 var list = new SinglyLinkedList()
+list.push("Hello")
+list.push("Goodbye")
 // list.push("Hello")
-// list.push("Goodbye")
-// // list.push("Hello")
-// list.push("Goodbye")
-// // list.push("Hello")
-// list.push("Goodbye")// list.push("Hello")
-// list.push("Goodbye")
-list.pop()
+list.push("Goodbye")
+// list.push("Hello")
+list.push("Goodbye")// list.push("Hello")
+list.push("Goodbye")
+// list.pop()
+list.get(0)
 
 // var first = new Node('Hi')
 // first.next = new Node('there')
 
 console.log(list)
+console.log(list.get(0))
